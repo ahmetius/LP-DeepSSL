@@ -22,7 +22,7 @@ from mean_teacher.run_context import RunContext
 from mean_teacher.data import NO_LABEL
 from mean_teacher.utils import *
 
-import mean_teacher.db_semisuper as db_semisuper
+import lp.db_semisuper as db_semisuper
 
 
 def parse_dict_args(**kwargs):
