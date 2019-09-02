@@ -1,4 +1,7 @@
-# Authors: A. Iscen, G. Tolias, Y. Avrithis, O. Chum. 2018.
+# Author: Dmytro Mishkin, 2018.
+# This is simple partial re-implementation of papers 
+# Fast Spectral Ranking for Similarity Search, CVPR 2018. https://arxiv.org/abs/1703.06935
+# and  Efficient Diffusion on Region Manifolds: Recovering Small Objects with Compact CNN Representations, CVPR 2017 http://people.rennes.inria.fr/Ahmet.Iscen/diffusion.html
 
 import pdb
 import os
