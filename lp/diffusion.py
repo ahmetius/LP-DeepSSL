@@ -1,3 +1,5 @@
+# Authors: A. Iscen, G. Tolias, Y. Avrithis, O. Chum. 2018.
+
 import pdb
 import os
 import numpy as np
