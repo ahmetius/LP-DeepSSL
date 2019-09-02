@@ -3,7 +3,7 @@ This repository contains the code for the following paper:
 
 > A. Iscen, G. Tolias, Y. Avrithis, O. Chum. "Label Propagation for Deep Semi-supervised Learning", CVPR 2019
 
-This code generally follows [Mean Teacher Pytorch implementation](https://github.com/CuriousAI/mean-teacher/tree/master/pytorch). Python 3 is required.
+This code generally follows [Mean Teacher Pytorch implementation](https://github.com/CuriousAI/mean-teacher/tree/master/pytorch). Python 3 and [FAISS](https://github.com/facebookresearch/faiss) are required.
 
 ##  Data pre-processing:
 
