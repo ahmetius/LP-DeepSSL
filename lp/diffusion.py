@@ -11,7 +11,6 @@ from scipy.sparse import csr_matrix, eye, diags
 from scipy.sparse import linalg as s_linalg
 
 def normalize_connection_graph(G):
-    W = csr_matrix(G)
     W = W - diags(W.diagonal())
     D = np.array(1./ np.sqrt(W.sum(axis = 1)))
     D[np.isnan(D)] = 0

@@ -293,22 +293,28 @@ class DBSS(DatasetFolder):
         W = W + W.T
 
         # Normalize the graph
-        Wn = normalize_connection_graph(W)
+        W = W - scipy.sparse.diags(W.diagonal())
+        S = W.sum(axis = 1)
+        S[S==0] = 1
+        D = np.array(1./ np.sqrt(S))
+        D = scipy.sparse.diags(D.reshape(-1))
+        Wn = D * W * D
 
-        # Initiliaze the y vector for each class (eq 5 from the paper, normalized with the class size)
-        qsim = np.zeros((len(self.classes),N))
+        # Initiliaze the y vector for each class (eq 5 from the paper, normalized with the class size) and apply label propagation
+        Z = np.zeros((N,len(self.classes)))
+        A = scipy.sparse.eye(Wn.shape[0]) - alpha * Wn
         for i in range(len(self.classes)):
             cur_idx = labeled_idx[np.where(labels[labeled_idx] ==i)]
-            qsim[i,cur_idx] = 1.0 / cur_idx.shape[0]
-
-        # Run label propagation
-        cg_ranks, cg_sims =  cg_diffusion(qsim, Wn, alpha , maxiter = max_iter, tol = 1e-6)
+            y = np.zeros((N,))
+            y[cur_idx] = 1.0 / cur_idx.shape[0]
+            f, _ = scipy.sparse.linalg.cg(A, y, tol=1e-6, maxiter=max_iter)
+            Z[:,i] = f
 
         # Handle numberical errors
-        cg_sims[cg_sims < 0] = 0 
+        Z[Z < 0] = 0 
 
         # Compute the weight for each instance based on the entropy (eq 11 from the paper)
-        probs_l1 = F.normalize(torch.tensor(cg_sims),1).numpy()
+        probs_l1 = F.normalize(torch.tensor(Z),1).numpy()
         probs_l1[probs_l1 <0] = 0
         entropy = scipy.stats.entropy(probs_l1.T)
         weights = 1 - entropy / np.log(len(self.classes))
