@@ -47,9 +47,9 @@ def main():
 
     # Name of the model to be trained
     if args.isMT:
-        model_name = '%s_%d_mean_teacher_split_%d_lr_%.4f_isL2_%d' % (args.dataset,args.num_labeled,args.label_split,args.lr,int(args.isL2))
+        model_name = '%s_%d_mean_teacher_split_%d_isL2_%d' % (args.dataset,args.num_labeled,args.label_split,int(args.isL2))
     else:
-        model_name = '%s_%d_split_%d_lr_%.4f_isL2_%d' % (args.dataset,args.num_labeled,args.label_split,args.lr,int(args.isL2))
+        model_name = '%s_%d_split_%d_isL2_%d' % (args.dataset,args.num_labeled,args.label_split,int(args.isL2))
 
 
     checkpoint_path = 'models/%s' % model_name

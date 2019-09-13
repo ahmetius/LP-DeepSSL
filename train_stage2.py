@@ -77,9 +77,9 @@ def main():
 
     # Name of the model trained in Stage 1
     if args.isMT:
-    	resume_fn = 'models/%s_%d_mean_teacher_split_%d_lr_%.4f_isL2_%d/checkpoint.180.ckpt' % (args.dataset,args.num_labeled,args.label_split,args.lr,int(args.isL2))
+    	resume_fn = 'models/%s_%d_mean_teacher_split_%d_isL2_%d/checkpoint.180.ckpt' % (args.dataset,args.num_labeled,args.label_split,int(args.isL2))
     else:
-    	resume_fn = 'models/%s_%d_split_%d_lr_%.4f_isL2_%d/checkpoint.180.ckpt' % (args.dataset,args.num_labeled,args.label_split,args.lr,int(args.isL2))
+    	resume_fn = 'models/%s_%d_split_%d_isL2_%d/checkpoint.180.ckpt' % (args.dataset,args.num_labeled,args.label_split,int(args.isL2))
 
     # Load the model from Stage 1
     assert os.path.isfile(resume_fn), "=> no checkpoint found at '{}'".format(resume_fn)
