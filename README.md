@@ -42,7 +42,7 @@ Stage 1 consists of training a network with known labels only. Following command
 ```
 >> python train_stage1.py --exclude-unlabeled=True --num-labeled=$NOLABELS --gpu-id=$GPUID --label-split=$SPLITID --isMT=False --isL2=True --dataset=$DATASET
 ```
-where ```$NOLABELS``` is the number of labeled points, ```$GPUID``` is the GPU to be used (0 by default), ```$SPLITID``` is the ID of the split to be used (10-19 in our experiments), and ```$DATASET``` is the name of the dataset (cifar10, cifar100, or miniimagenet).
+where ```$NOLABELS``` is the number of labeled points, ```$GPUID``` is the GPU to be used (0 by default), ```$SPLITID``` is the ID of the split to be used (10-19 for cifar*, 10-12 for miniimagenet), and ```$DATASET``` is the name of the dataset (cifar10, cifar100, or miniimagenet).
 
 After the training for Stage 1 is completed, run the following command for Stage 2, which resumes the training from the model trained in Stage 1, but this time with pseudo-labels using the entire dataset:
 
