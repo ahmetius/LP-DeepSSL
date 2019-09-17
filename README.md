@@ -23,14 +23,14 @@ Run the similar command for CIFAR-100, taken from the [fastswa-semi-sup](https:/
 ### Mini-Imagenet
 We took the Mini-Imagenet dataset hosted in [this repository](https://github.com/gidariss/FewShotWithoutForgetting) and pre-processed it.
 
-Download [miniimagenet_train.pkl](http://ptak.felk.cvut.cz/personal/toliageo/share/lpdeep/miniimagenet_train.pkl), and place it in the following directory:
+Download [train.tar.gz](http://ptak.felk.cvut.cz/personal/toliageo/share/lpdeep/train.tar.gz), and extract it in the following directory:
 ```
->> ./data-local/images/miniimagenet/train/
+>> ./data-local/images/miniimagenet/
 ```
 
-Download [miniimagenet_test.pkl](http://ptak.felk.cvut.cz/personal/toliageo/share/lpdeep/miniimagenet_test.pkl), and place it in the following directory:
+Download [test.tar.gz](http://ptak.felk.cvut.cz/personal/toliageo/share/lpdeep/test.tar.gz), and extract it in the following directory:
 ```
->> ./data-local/images/miniimagenet/test/
+>> ./data-local/images/miniimagenet/
 ```
 
 
