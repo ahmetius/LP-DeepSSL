@@ -36,12 +36,12 @@ Stage 1 consists of training a network with known labels only. Following command
 ```
 >> python train_stage1.py --exclude-unlabeled=True --num-labeled=$NOLABELS --gpu-id=$GPUID --label-split=$SPLITID --isMT=False --isL2=True --dataset=$DATASET
 ```
-where ```$NOLABELS``` is the number of labeled points, ```$GPUID``` is the GPU to be used (0 by default), ```$SPLITID``` is the ID of the split to be used (10-19 for cifar10, 10-12 for cifar100 and miniimagenet), and ```$DATASET``` is the name of the dataset (cifar10, cifar100, or miniimagenet).
+where ```$NOLABELS``` is the number of labeled points, ```$GPUID``` is the GPU to be used (0 by default), ```$SPLITID``` is the ID of the split to be used (10-19 for cifar10, 10-12 for cifar100 and miniimagenet), ```$DATASET``` is the name of the dataset (cifar10, cifar100, or miniimagenet), and ```$LABELED_IN_BATCH``` is the number of labeled images in a batch (50 for cifar10, 31 for cifar100 and miniimagenet).
 
 After the training for Stage 1 is completed, run the following command for Stage 2, which resumes the training from the model trained in Stage 1, but this time with pseudo-labels using the entire dataset:
 
 ```
->> python train_stage2.py --labeled-batch-size=50 --num-labeled=$NOLABELS --gpu-id=$GPUID --label-split=$SPLITID --isMT=False --isL2=True --dataset=$DATASET
+>> python train_stage2.py --labeled-batch-size=$LABELED_IN_BATCH --num-labeled=$NOLABELS --gpu-id=$GPUID --label-split=$SPLITID --isMT=False --isL2=True --dataset=$DATASET
 ```
 
 ##  Combining with Mean Teacher:
@@ -49,12 +49,12 @@ Use the following commands for combining Mean Teacher with our method:
 
 Stage 1:
 ```
->> python train_stage1.py --labeled-batch-size=50 --num-labeled=$NOLABELS --gpu-id=$GPUID --label-split=$SPLITID --isMT=True --isL2=False --dataset=$DATASET
+>> python train_stage1.py --labeled-batch-size=$LABELED_IN_BATCH --num-labeled=$NOLABELS --gpu-id=$GPUID --label-split=$SPLITID --isMT=True --isL2=False --dataset=$DATASET
 ```
 
 Stage 2:
 ```
->> python train_stage2.py --labeled-batch-size=50 --num-labeled=$NOLABELS --gpu-id=$GPUID --label-split=$SPLITID --isMT=True --isL2=False --dataset=$DATASET
+>> python train_stage2.py --labeled-batch-size=$LABELED_IN_BATCH --num-labeled=$NOLABELS --gpu-id=$GPUID --label-split=$SPLITID --isMT=True --isL2=False --dataset=$DATASET
 ```
 
 
