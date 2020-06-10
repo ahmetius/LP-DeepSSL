@@ -1,0 +1,16 @@
+data-local/images/
+data-local/workdir/
+models/
+
+# settings
+.idea/
+.vscode/
+
+# python
+.ipynb_checkpoints/
+__pychache__/
+*.pyc
+.python-version
+
+# Universal files
+.DS_Store

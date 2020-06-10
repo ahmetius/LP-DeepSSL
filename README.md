@@ -11,13 +11,15 @@ This code generally follows [Mean Teacher Pytorch implementation](https://github
 As in the original Mean Teacher repository, run the following command:
 
 ```
->> ./data-local/bin/prepare_cifar10.sh
+>> cd data-local/bin
+>> ./prepare_cifar10.sh
 ```
 
 ### CIFAR-100
 Run the similar command for CIFAR-100, taken from the [fastswa-semi-sup](https://github.com/benathi/fastswa-semi-sup/tree/master/data-local/bin) repository:
 ```
->> ./data-local/bin/prepare_cifar100.sh
+>> cd data-local/bin
+>> ./prepare_cifar100.sh
 ```
 
 ### Mini-Imagenet
